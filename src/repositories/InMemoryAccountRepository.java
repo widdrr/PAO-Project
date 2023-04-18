@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 
-public class InMemoryIAccountRepository implements IAccountRepository {
+public class InMemoryAccountRepository implements IAccountRepository {
 
     private final ArrayList<Account> accounts;
 
-    public InMemoryIAccountRepository() {
+    public InMemoryAccountRepository() {
         this.accounts = new ArrayList<>();
     }
 
@@ -23,5 +23,11 @@ public class InMemoryIAccountRepository implements IAccountRepository {
     public void addAccount(Account account) {
         accounts.add(account);
     }
+
+    @Override
+    public void removeAccount(Account account) {
+        accounts.remove(account);
+    }
+
 
 }

@@ -4,9 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Started work on model and account creation flow.">
+    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Modified README.md">
+      <change afterPath="$PROJECT_DIR$/src/Menus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidCredentialsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/CreatorAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Deposit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/GameTags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Purchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Withdrawal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/InMemoryProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/EntityExistentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/EntityExistentException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/IAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/IAccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/InMemoryIAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/InMemoryAccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AccountService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +34,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -60,7 +79,12 @@
       <workItem from="1681043424250" duration="492000" />
       <workItem from="1681553410126" duration="4507000" />
       <workItem from="1681564541705" duration="3535000" />
-      <workItem from="1681723814559" duration="2219000" />
+      <workItem from="1681723814559" duration="3528000" />
+      <workItem from="1681732320678" duration="1938000" />
+      <workItem from="1681736943875" duration="1169000" />
+      <workItem from="1681742347945" duration="4293000" />
+      <workItem from="1681808506269" duration="4607000" />
+      <workItem from="1681818521747" duration="4661000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1681043579488</created>
@@ -76,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681724029290</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Modified README.md">
+      <created>1681727216960</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681727216960</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created Project" />
     <MESSAGE value="Started work on model and account creation flow." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started work on model and account creation flow." />
+    <MESSAGE value="Modified README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified README.md" />
   </component>
 </project>
