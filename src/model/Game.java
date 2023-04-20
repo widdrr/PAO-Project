@@ -1,23 +1,22 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Game extends Product{
 
-    protected ArrayList<GameTags> tags;
-    public Game(double price, String name, CreatorAccount creator, ArrayList<GameTags> tags) {
+    protected HashSet<GameTags> tags;
+    public Game(double price, String name, CreatorAccount creator, Set<GameTags> tags) {
         super(price, name, creator);
-        this.tags = new ArrayList<GameTags>(tags);
+        this.tags = new HashSet<>(tags);
     }
 
     @Override
     public String toString() {
-        return "Game{" +
-                "tags=" + tags +
-                ", price=" + price +
-                ", name='" + name + '\'' +
-                ", creator=" + creator +
-                ", releaseDate=" + releaseDate +
-                '}';
+        return "Type = Game" +
+                "\nName: " + this.name +
+                "\nCreator: " + this.creator.getUsername() +
+                "\nPrice: " + this.price +
+                "\nTags " + this.tags;
     }
 }

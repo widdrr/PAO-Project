@@ -4,6 +4,7 @@ public enum Menus {
     UserLogged,
     CreatorLogged,
     Store,
-    UserStore,
     CreatorStore,
+    Creator,
+    UserStore,
 }

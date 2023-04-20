@@ -17,13 +17,13 @@ public class InMemoryProductRepository implements IProductRepository {
     }
 
     @Override
-    public Optional<Product> getProductByName() {
-        return Optional.empty();
+    public Optional<Product> getProductByName(String name) {
+        return products.stream().filter((product) -> name.equalsIgnoreCase(product.getName())).findFirst();
     }
 
     @Override
-    public void addProduct() {
-
+    public void addProduct(Product product) {
+        products.add(product);
     }
 
     @Override

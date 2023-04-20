@@ -1,22 +1,33 @@
-import exceptions.EntityExistentException;
-import exceptions.InvalidCredentialsException;
-import model.Account;
+import exceptions.EntityException;
+import exceptions.CredentialsException;
+import exceptions.FundsException;
+import model.*;
 import repositories.IAccountRepository;
+import repositories.IProductRepository;
 import repositories.InMemoryAccountRepository;
+import repositories.InMemoryProductRepository;
 import services.AccountService;
+import services.ProductService;
 
+import java.sql.SQLOutput;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
 
     private static Account currentAccount = null;
     private static AccountService accountService;
+    private static ProductService productService;
     private static Scanner consoleInput;
     private static boolean quit;
     private static Menus currentMenu;
     private static final String MainMenu = "1. Account Menu\n2. Store Menu";
-    private static final String NotLogged = "1. Register\n2. Login\n3. Back";
-    private static final String UserLogged ="1. Account Details\n2. Logout\n3. Back";
+    private static final String NotLoggedMenu = "1. Register\n2. Login\nB. Back";
+    private static final String UserLoggedMenu ="1. Account Details\n2. Deposit\n3. Logout\nB. Back";
+    private static final String StoreMenu ="1. List products\nB. Back";
+    private static final String CreatorStoreMenu ="1. List products\n2. Add product\nB. Back";
+    private static final String UserStoreMenu = "1. List products\n2. Purchase product\nB. Back";
+    private static final String CreatorMenu="1. Create a game\n2. Create game content\nB. Back";
     private static void handleCommand(String command){
         if(command.equalsIgnoreCase("quit")){
             quit = true;
@@ -28,10 +39,23 @@ public class Main {
                     case "1" -> {
                         if(currentAccount == null)
                             currentMenu = Menus.NotLogged;
-                        else
-                            currentMenu = Menus.UserLogged;
+                        else {
+                            if (currentAccount instanceof UserAccount)
+                                currentMenu = Menus.UserLogged;
+                            else
+                                currentMenu = Menus.UserLogged;
+                        }
                     }
-                    case "2" -> currentMenu = Menus.Store;
+                    case "2" -> {
+                        if (currentAccount == null)
+                            currentMenu = Menus.Store;
+                        else {
+                            if (currentAccount instanceof UserAccount)
+                                currentMenu = Menus.UserStore;
+                            else
+                                currentMenu = Menus.CreatorStore;
+                        }
+                    }
                     default -> System.out.println("Invalid Command");
                 }
             }
@@ -55,7 +79,7 @@ public class Main {
                             currentMenu = Menus.Main;
                             System.out.println("Account registered successfully!");
                         }
-                        catch(EntityExistentException e){
+                        catch(EntityException e){
                             System.out.println(e.getMessage());
                         }
                     }
@@ -69,11 +93,11 @@ public class Main {
                             currentMenu = Menus.Main;
                             System.out.println("Successful login!");
                         }
-                        catch(InvalidCredentialsException e){
+                        catch(CredentialsException e){
                             System.out.println(e.getMessage());
                         }
                     }
-                    case "3" -> currentMenu = Menus.Main;
+                    case "B" -> currentMenu = Menus.Main;
                     default -> System.out.println("Invalid Command");
                 }
             }
@@ -81,10 +105,92 @@ public class Main {
                 switch (command){
                     case "1" -> System.out.println(currentAccount);
                     case "2" -> {
+                        System.out.println("Enter sum:");
+                        double sum = consoleInput.nextDouble();
+                        consoleInput.nextLine();
+
+                        Transaction deposit = new Deposit(new Date(),currentAccount,sum);
+                        currentAccount.addTransaction(deposit);
+                        System.out.println("Deposit successful!");
+                    }
+                    case "3" -> {
                         currentAccount = null;
                         currentMenu = Menus.Main;
                     }
-                    case "3" -> currentMenu = Menus.Main;
+                    case "B" -> currentMenu = Menus.Main;
+                    default -> System.out.println("Invalid Command");
+                }
+            }
+            case Store ->{
+                switch (command){
+                    case "1" -> System.out.println(productService.listProducts());
+                    case "B" -> currentMenu = Menus.Main;
+                    default -> System.out.println("Invalid Command");
+                }
+            }
+            case CreatorStore -> {
+                switch (command){
+                    case "1" -> System.out.println(productService.listProducts());
+                    case "2" -> currentMenu = Menus.Creator;
+                    case "B" -> currentMenu = Menus.Main;
+                    default -> System.out.println("Invalid Command");
+                }
+            }
+            case UserStore -> {
+                switch (command){
+                    case "1" -> System.out.println(productService.listProducts());
+                    case "2" -> {
+                        System.out.println("Product name:");
+                        String name = consoleInput.nextLine();
+
+                        try{
+                            Product product = productService.getProduct(name);
+
+                            UserAccount user = (UserAccount) currentAccount;
+                            user.addProduct(product);
+                            System.out.println("Purchase successful!");
+                        }
+                        catch(EntityException e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch(FundsException e){
+                            System.out.println(e.getMessage());
+                            System.out.println("Do you wish to deposit?");
+                            //TODO: this.
+                        }
+                        finally {
+                            currentMenu = Menus.UserStore;
+                        }
+                    }
+                    case "B" -> currentMenu = Menus.Main;
+                    default -> System.out.println("Invalid Command");
+                }
+            }
+            case Creator ->{
+                switch (command){
+                    case "1" -> {
+                        System.out.println("Game name:");
+                        String name = consoleInput.nextLine();
+                        CreatorAccount creator = (CreatorAccount) currentAccount;
+                        creator.createGame.setName(name);
+
+                        System.out.println("Price:");
+                        double price = consoleInput.nextDouble();
+                        consoleInput.nextLine();
+                        creator.createGame.setPrice(price);
+
+                        try{
+                            productService.addProduct(creator.createGame.create());
+                            System.out.println("Product added successfully!");
+                        }
+                        catch (EntityException e){
+                            System.out.println(e.getMessage());
+                        }
+                        finally {
+                            currentMenu = Menus.CreatorStore;
+                        }
+                    }
+                    case "B" -> currentMenu = Menus.CreatorStore;
                     default -> System.out.println("Invalid Command");
                 }
             }
@@ -93,15 +199,21 @@ public class Main {
     private static void printPrompt(){
         switch (currentMenu){
             case Main -> System.out.println(MainMenu);
-            case NotLogged -> System.out.println(NotLogged);
-            case UserLogged -> System.out.println(UserLogged);
+            case NotLogged -> System.out.println(NotLoggedMenu);
+            case UserLogged -> System.out.println(UserLoggedMenu);
+            case Store -> System.out.println(StoreMenu);
+            case CreatorStore -> System.out.println(CreatorStoreMenu);
+            case UserStore -> System.out.println(UserStoreMenu);
+            case Creator -> System.out.println(CreatorMenu);
         }
     }
     public static void main(String[] args) {
         quit = false;
         currentMenu = Menus.Main;
-        IAccountRepository repo = new InMemoryAccountRepository();
-        accountService = new AccountService(repo);
+        IAccountRepository accountRepository = new InMemoryAccountRepository();
+        IProductRepository productRepository = new InMemoryProductRepository();
+        accountService = new AccountService(accountRepository);
+        productService = new ProductService(productRepository);
         consoleInput = new Scanner(System.in);
 
         //TODO: pretty printing

@@ -9,8 +9,8 @@ public interface IProductRepository {
 
     List<Product> listProducts();
 
-    Optional<Product> getProductByName();
-    void addProduct();
+    Optional<Product> getProductByName(String name);
+    void addProduct(Product product);
     void removeProduct();
 
 }

@@ -1,7 +1,9 @@
 package model;
 
-import exceptions.EntityExistentException;
+import exceptions.EntityException;
+import exceptions.FundsException;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,19 +14,23 @@ public final class UserAccount extends Account {
         super(username, passwordHash);
         this.ownedProducts = new HashSet<>();
     }
-    public void addProduct(Product product) throws EntityExistentException {
+    public void addProduct(Product product) throws EntityException, FundsException {
         if(ownedProducts.contains(product))
-            throw new EntityExistentException("Product already owned!");
+            throw new EntityException("Product already owned!");
 
+        if(this.getBalance() < product.price)
+            throw new FundsException("Insufficient funds!");
         ownedProducts.add(product);
+        Transaction purchase = new Purchase(new Date(),this,product);
+        Transaction payment = new Payment(new Date(), product.getCreator(), product);
+        super.addTransaction(purchase);
+        product.getCreator().addTransaction(payment);
     }
 
     @Override
     public String toString() {
-        return "UserAccount{" +
-                "username='" + username + '\'' +
-                ", passwordHash=" + passwordHash +
-                ", lastLogin=" + lastLogin +
-                '}';
+        return "Username: " + this.username
+                + "\nBalance: " + this.getBalance()
+                + "\nLast Login: " + this.lastLogin;
     }
 }

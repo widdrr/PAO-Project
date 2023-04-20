@@ -3,7 +3,15 @@ package model;
 import java.util.Date;
 
 public final class Purchase extends Transaction {
-    public Purchase(Date transactionDate, Account account, double sum) {
-        super(transactionDate, account, sum);
+
+    private final Product product;
+    public Purchase(Date transactionDate, Account account, Product product) {
+        super(transactionDate, account, product.price);
+        this.product = product;
+    }
+
+    @Override
+    public double getSum() {
+        return -sum;
     }
 }
