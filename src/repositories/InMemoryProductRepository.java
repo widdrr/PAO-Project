@@ -9,7 +9,7 @@ public class InMemoryProductRepository implements IProductRepository {
     private final TreeSet<Product> products;
 
     public InMemoryProductRepository() {
-        this.products = new TreeSet<Product>();
+        this.products = new TreeSet<>();
     }
     @Override
     public List<Product> listProducts() {

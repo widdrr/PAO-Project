@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Game extends Product{
 
-    protected HashSet<GameTags> tags;
+    protected final HashSet<GameTags> tags;
     public Game(double price, String name, CreatorAccount creator, Set<GameTags> tags) {
         super(price, name, creator);
         this.tags = new HashSet<>(tags);

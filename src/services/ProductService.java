@@ -1,7 +1,6 @@
 package services;
 
 import exceptions.EntityException;
-import model.Account;
 import model.Product;
 import repositories.IProductRepository;
 

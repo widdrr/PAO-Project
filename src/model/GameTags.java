@@ -1,7 +1,7 @@
 package model;
 
 public enum GameTags {
-    Singleplayer,
+    SinglePlayer,
     TwoD,
     ThreeD,
     FirstPersonShooter,

@@ -8,7 +8,7 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
     protected String username;
     protected int passwordHash;
     protected Date lastLogin;
-    protected ArrayList<Transaction> transactions;
+    protected final ArrayList<Transaction> transactions;
     protected double cachedBalance;
     protected boolean cacheValid;
 
