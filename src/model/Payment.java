@@ -5,8 +5,8 @@ import java.util.Date;
 public final class Payment extends Transaction {
 
     private final Product product;
-    public Payment(Date transactionDate, Account account,Product product) {
-        super(transactionDate, account, product.price*0.8);
+    public Payment(Date transactionDate, Account account,Product product, double sum) {
+        super(transactionDate, account, sum);
         this.product = product;
     }
 

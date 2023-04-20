@@ -33,6 +33,8 @@ public abstract class Product implements Comparable<Product> {
     public Date getReleaseDate() {
         return releaseDate;
     }
+
+    public abstract void payCreator();
     //TODO: sort by product type too
     @Override
     public int compareTo(Product o) {

@@ -21,15 +21,12 @@ public final class UserAccount extends Account {
         if(this.getBalance() < product.price)
             throw new FundsException("Insufficient funds!");
         ownedProducts.add(product);
-        Transaction purchase = new Purchase(new Date(),this,product);
-        Transaction payment = new Payment(new Date(), product.getCreator(), product);
-        super.addTransaction(purchase);
-        product.getCreator().addTransaction(payment);
+        product.payCreator();
     }
 
     @Override
     public String toString() {
-        return "Username: " + this.username
+        return "User: " + this.username
                 + "\nBalance: " + this.getBalance()
                 + "\nLast Login: " + this.lastLogin;
     }

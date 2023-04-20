@@ -10,6 +10,7 @@ import services.AccountService;
 import services.ProductService;
 
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -24,6 +25,7 @@ public class Main {
     private static final String MainMenu = "1. Account Menu\n2. Store Menu";
     private static final String NotLoggedMenu = "1. Register\n2. Login\nB. Back";
     private static final String UserLoggedMenu ="1. Account Details\n2. Deposit\n3. Logout\nB. Back";
+    private static final String CreatorLoggedMenu ="1. Account Details\n2. Withdraw\n3. Logout\nB. Back";
     private static final String StoreMenu ="1. List products\nB. Back";
     private static final String CreatorStoreMenu ="1. List products\n2. Add product\nB. Back";
     private static final String UserStoreMenu = "1. List products\n2. Purchase product\nB. Back";
@@ -43,7 +45,7 @@ public class Main {
                             if (currentAccount instanceof UserAccount)
                                 currentMenu = Menus.UserLogged;
                             else
-                                currentMenu = Menus.UserLogged;
+                                currentMenu = Menus.CreatorLogged;
                         }
                     }
                     case "2" -> {
@@ -121,6 +123,28 @@ public class Main {
                     default -> System.out.println("Invalid Command");
                 }
             }
+            case CreatorLogged -> {
+                switch (command){
+                    case "1" -> System.out.println(currentAccount);
+                    case "2" -> {
+                        System.out.println("Enter sum:");
+                        double sum = consoleInput.nextDouble();
+                        consoleInput.nextLine();
+                        try {
+                            ((CreatorAccount) currentAccount).withdraw(sum);
+                        }
+                        catch (FundsException e){
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                    case "3" -> {
+                        currentAccount = null;
+                        currentMenu = Menus.Main;
+                    }
+                    case "B" -> currentMenu = Menus.Main;
+                    default -> System.out.println("Invalid Command");
+                }
+            }
             case Store ->{
                 switch (command){
                     case "1" -> System.out.println(productService.listProducts());
@@ -179,8 +203,78 @@ public class Main {
                         consoleInput.nextLine();
                         creator.createGame.setPrice(price);
 
+                        System.out.println("Available tags: "+ Arrays.toString(GameTags.values()));
+                        System.out.println("Add tag one at a time or enter 'done' when finished");
+                        String tag = consoleInput.nextLine();
+                        while(tag.compareToIgnoreCase("done")!=0){
+                            try {
+                                GameTags gameTag = GameTags.valueOf(tag);
+                                creator.createGame.addTag(gameTag);
+                            }
+                            catch (IllegalArgumentException e){
+                                System.out.println("Tag does not exist");
+                            }
+                            finally {
+                                System.out.println("Add tag one at a time or enter 'done' when finished");
+                                tag = consoleInput.nextLine();
+                            }
+                        }
+
                         try{
                             productService.addProduct(creator.createGame.create());
+                            System.out.println("Product added successfully!");
+                        }
+                        catch (EntityException e){
+                            System.out.println(e.getMessage());
+                        }
+                        finally {
+                            currentMenu = Menus.CreatorStore;
+                        }
+                    }
+                    case "2" -> {
+                        System.out.println("Game:");
+                        String gameName = consoleInput.nextLine();
+                        CreatorAccount creator = (CreatorAccount) currentAccount;
+                        try {
+                            Game game = (Game) productService.getProduct(gameName);
+                            creator.createContent.setDependency(game);
+
+                        }
+                        catch(EntityException e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch (ClassCastException e){
+                            System.out.println("Product is not a game");
+                        }
+
+                        System.out.println("Name:");
+                        String name = consoleInput.nextLine();
+                        creator.createContent.setName(name);
+
+                        System.out.println("Price:");
+                        double price = consoleInput.nextDouble();
+                        consoleInput.nextLine();
+                        creator.createContent.setPrice(price);
+
+                        System.out.println("Available tags: "+ Arrays.toString(GameTags.values()));
+                        System.out.println("Add tag one at a time or enter 'done' when finished");
+                        String tag = consoleInput.nextLine();
+                        while(tag.compareToIgnoreCase("done")!=0){
+                            try {
+                                GameTags gameTag = GameTags.valueOf(tag);
+                                creator.createContent.addTag(gameTag);
+                            }
+                            catch (IllegalArgumentException e){
+                                System.out.println("Tag does not exist");
+                            }
+                            finally {
+                                System.out.println("Add tag one at a time or enter 'done' when finished");
+                                tag = consoleInput.nextLine();
+                            }
+                        }
+
+                        try{
+                            productService.addProduct(creator.createContent.create());
                             System.out.println("Product added successfully!");
                         }
                         catch (EntityException e){

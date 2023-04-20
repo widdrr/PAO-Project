@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,11 +13,17 @@ public class Game extends Product{
     }
 
     @Override
+    public void payCreator() {
+        Transaction payment = new Payment(new Date(), creator,this,this.price*0.8);
+        creator.addTransaction(payment);
+    }
+
+    @Override
     public String toString() {
         return "Type = Game" +
                 "\nName: " + this.name +
                 "\nCreator: " + this.creator.getUsername() +
                 "\nPrice: " + this.price +
-                "\nTags " + this.tags;
+                "\nTags " + this.tags +"\n\n";
     }
 }
