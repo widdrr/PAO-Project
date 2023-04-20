@@ -9,7 +9,6 @@ import repositories.InMemoryProductRepository;
 import services.AccountService;
 import services.ProductService;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
@@ -30,6 +29,7 @@ public class Main {
     private static final String CreatorStoreMenu ="1. List products\n2. Add product\nB. Back";
     private static final String UserStoreMenu = "1. List products\n2. Purchase product\nB. Back";
     private static final String CreatorMenu="1. Create a game\n2. Create game content\nB. Back";
+    //TODO: try and refactor this monster
     private static void handleCommand(String command){
         if(command.equalsIgnoreCase("quit")){
             quit = true;
@@ -295,6 +295,7 @@ public class Main {
             case Main -> System.out.println(MainMenu);
             case NotLogged -> System.out.println(NotLoggedMenu);
             case UserLogged -> System.out.println(UserLoggedMenu);
+            case CreatorLogged -> System.out.println(CreatorLoggedMenu);
             case Store -> System.out.println(StoreMenu);
             case CreatorStore -> System.out.println(CreatorStoreMenu);
             case UserStore -> System.out.println(UserStoreMenu);

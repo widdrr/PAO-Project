@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Some product flows and README.md changes">
+    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="GameContent flows and more transactions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/CreatorAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CreatorAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
       <workItem from="1681829630158" duration="7170000" />
       <workItem from="1681902999637" duration="6882000" />
       <workItem from="1681979921842" duration="1608000" />
-      <workItem from="1681987582955" duration="6299000" />
+      <workItem from="1681987582955" duration="6752000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1681043579488</created>
@@ -113,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681980146448</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="GameContent flows and more transactions">
+      <created>1681995451280</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681995451280</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +139,7 @@
     <MESSAGE value="Modified README.md" />
     <MESSAGE value="Register, Login and Model changes" />
     <MESSAGE value="Some product flows and README.md changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some product flows and README.md changes" />
+    <MESSAGE value="GameContent flows and more transactions" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameContent flows and more transactions" />
   </component>
 </project>

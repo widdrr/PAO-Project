@@ -14,13 +14,13 @@ ____
 - Withdrawal
 
 ## Operations:
-- Register account
+- Register user account
+- Register creator account
 - View account details
-- Change account credentials
 - Authenticate
-- Add product to store
-- Remove product from store
+- Add game to store
+- Add content to store
 - List products in store
 - Deposit funds
 - Withdraw funds
-- Purchase Product
+- Purchase product

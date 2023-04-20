@@ -2,8 +2,6 @@ package model;
 
 import exceptions.FundsException;
 
-import javax.swing.text.AbstractDocument;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -15,7 +13,7 @@ public final class CreatorAccount extends Account{
     public static class GameBuilder{
 
         protected final CreatorAccount creator;
-        protected HashSet<GameTags> tags;
+        protected final HashSet<GameTags> tags;
         protected String name;
         protected double price;
 
@@ -35,7 +33,7 @@ public final class CreatorAccount extends Account{
         }
 
         public Product create(){
-            Product newGame = new Game(this.price,this.name,this.creator,this.tags);
+            Product newGame = new Game(price,name,creator,tags);
             clear();
             return  newGame;
         }
@@ -54,7 +52,7 @@ public final class CreatorAccount extends Account{
 
         public void setDependency(Game dependency) {
             this.dependency = dependency;
-            this.tags = dependency.tags;
+            this.tags.addAll(dependency.tags);
         }
 
         public Product create(){
