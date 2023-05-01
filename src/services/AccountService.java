@@ -2,11 +2,11 @@ package services;
 
 import exceptions.EntityException;
 import exceptions.CredentialsException;
-import model.Account;
-import model.CreatorAccount;
-import model.UserAccount;
+import exceptions.FundsException;
+import model.*;
 import repositories.IAccountRepository;
 
+import java.util.Date;
 import java.util.Optional;
 
 //TODO: make this singleton
@@ -44,5 +44,13 @@ public final class AccountService {
             throw new CredentialsException("Wrong username or password!");
         }
         return existentAccount.get();
+    }
+
+    public void makeDeposit(UserAccount account, double sum) throws FundsException {
+        account.deposit(sum);
+    }
+
+    public void makeWithrdawal(CreatorAccount account, double sum) throws FundsException{
+        account.withdraw(sum);
     }
 }

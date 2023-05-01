@@ -4,8 +4,9 @@ public enum GameTags {
     SinglePlayer,
     TwoD,
     ThreeD,
-    FirstPersonShooter,
-    RealTimeStrategy,
+    FPS,
+    RTS,
+    RPG,
     Roguelike,
 
 

@@ -110,10 +110,13 @@ public class Main {
                         System.out.println("Enter sum:");
                         double sum = consoleInput.nextDouble();
                         consoleInput.nextLine();
-
-                        Transaction deposit = new Deposit(new Date(),currentAccount,sum);
-                        currentAccount.addTransaction(deposit);
-                        System.out.println("Deposit successful!");
+                        try {
+                            accountService.makeDeposit((UserAccount) currentAccount, sum);
+                            System.out.println("Deposit successful!");
+                        }
+                        catch(FundsException e){
+                            System.out.println(e.getMessage());
+                        }
                     }
                     case "3" -> {
                         currentAccount = null;
@@ -131,7 +134,7 @@ public class Main {
                         double sum = consoleInput.nextDouble();
                         consoleInput.nextLine();
                         try {
-                            ((CreatorAccount) currentAccount).withdraw(sum);
+                            accountService.makeWithrdawal((CreatorAccount) currentAccount,sum);
                         }
                         catch (FundsException e){
                             System.out.println(e.getMessage());
@@ -179,8 +182,22 @@ public class Main {
                         }
                         catch(FundsException e){
                             System.out.println(e.getMessage());
-                            System.out.println("Do you wish to deposit?");
-                            //TODO: this.
+                            System.out.println("Do you wish to deposit?\n1.Yes\n2.No");
+                            command = consoleInput.nextLine();
+                            if(command.equalsIgnoreCase("1")){
+                                System.out.println("Enter sum:");
+                                double sum = consoleInput.nextDouble();
+                                consoleInput.nextLine();
+
+                                try {
+                                    accountService.makeDeposit((UserAccount) currentAccount, sum);
+                                    System.out.println("Deposit successful!");
+                                }
+                                catch(FundsException e2){
+                                    System.out.println(e2.getMessage());
+                                }
+                            }
+
                         }
                         finally {
                             currentMenu = Menus.UserStore;
