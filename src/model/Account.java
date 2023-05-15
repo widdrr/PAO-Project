@@ -10,7 +10,7 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
     protected Date lastLogin;
     protected final ArrayList<Transaction> transactions;
     protected double cachedBalance;
-    protected boolean cacheValid;
+    protected boolean cacheValid = false;
 
     public Account(String username, String passwordHash) {
         this.username = username;
@@ -44,6 +44,7 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
     }
     public void addTransaction(Transaction t){
         transactions.add(t);
+        cacheValid = false;
     }
     private void computeBalance(){
         cachedBalance = transactions.stream().map(Transaction::getSum).reduce(0.0, Double::sum);

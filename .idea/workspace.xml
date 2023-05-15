@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Small warning squashing">
+    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Small changes">
+      <change afterPath="$PROJECT_DIR$/src/logging/AccountLog.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logging/FileLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logging/ILogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logging/ProductLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameTags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameTags.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -43,20 +48,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "database.data.extractors.current.id": "Comma-separated (CSV)_id",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -79,7 +89,9 @@
       <workItem from="1681979921842" duration="1608000" />
       <workItem from="1681987582955" duration="7013000" />
       <workItem from="1682348383704" duration="3000" />
-      <workItem from="1682938378461" duration="2849000" />
+      <workItem from="1682938378461" duration="2964000" />
+      <workItem from="1683557919337" duration="2329000" />
+      <workItem from="1684162750497" duration="3937000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1681043579488</created>
@@ -137,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681995938463</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Small changes">
+      <created>1682941277943</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682941277943</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +182,7 @@
     <MESSAGE value="GameContent flows and more transactions" />
     <MESSAGE value="Bugfix and README.md change" />
     <MESSAGE value="Small warning squashing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small warning squashing" />
+    <MESSAGE value="Small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes" />
   </component>
 </project>

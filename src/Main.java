@@ -10,7 +10,6 @@ import services.AccountService;
 import services.ProductService;
 
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -119,6 +118,7 @@ public class Main {
                         }
                     }
                     case "3" -> {
+                        accountService.logout(currentAccount);
                         currentAccount = null;
                         currentMenu = Menus.Main;
                     }
@@ -128,19 +128,20 @@ public class Main {
             }
             case CreatorLogged -> {
                 switch (command){
-                    case "1" -> System.out.println(currentAccount);
+                    case "1" -> System.out.println(accountService.getAccountDetails(currentAccount));
                     case "2" -> {
                         System.out.println("Enter sum:");
                         double sum = consoleInput.nextDouble();
                         consoleInput.nextLine();
                         try {
-                            accountService.makeWithrdawal((CreatorAccount) currentAccount,sum);
+                            accountService.makeWithdrawal((CreatorAccount) currentAccount,sum);
                         }
                         catch (FundsException e){
                             System.out.println(e.getMessage());
                         }
                     }
                     case "3" -> {
+                        accountService.logout(currentAccount);
                         currentAccount = null;
                         currentMenu = Menus.Main;
                     }
@@ -172,9 +173,7 @@ public class Main {
 
                         try{
                             Product product = productService.getProduct(name);
-
-                            UserAccount user = (UserAccount) currentAccount;
-                            user.addProduct(product);
+                            productService.purchaseProduct((UserAccount) currentAccount, product);
                             System.out.println("Purchase successful!");
                         }
                         catch(EntityException e){

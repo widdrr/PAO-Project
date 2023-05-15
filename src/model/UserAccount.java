@@ -21,6 +21,7 @@ public final class UserAccount extends Account {
         if(this.getBalance() < product.price)
             throw new FundsException("Insufficient funds!");
         ownedProducts.add(product);
+        addTransaction(new Purchase(new Date(), this, product));
         product.payCreator();
     }
 
@@ -29,7 +30,7 @@ public final class UserAccount extends Account {
             throw new FundsException("Invalid sum!");
         }
 
-        Transaction deposit = new Deposit(new Date(),this,sum);
+        Transaction deposit = new Deposit(new Date(),this, sum);
         addTransaction(deposit);
     }
 
