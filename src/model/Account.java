@@ -19,6 +19,13 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
         this.transactions = new ArrayList<>();
     }
 
+    public Account(String username, int passwordHash, Date lastLogin){
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.lastLogin = lastLogin;
+        this.transactions = new ArrayList<>();
+    }
+
     public boolean tryLogin(String password){
         if(password.hashCode() == this.passwordHash){
             lastLogin = new Date();
@@ -33,6 +40,18 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getPasswordHash() {
+        return passwordHash;
+    }
+
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
     }
 
     public double getBalance() {

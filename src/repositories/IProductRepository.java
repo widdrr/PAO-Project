@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface IProductRepository {
 
     List<Product> listProducts();
-
     Optional<Product> getProductByName(String name);
     void addProduct(Product product);
     void removeProduct();
+    void updateProduct(Product product);
 
 }

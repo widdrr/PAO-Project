@@ -333,5 +333,6 @@ public class Main {
             String command = consoleInput.nextLine();
             handleCommand(command);
         }
+        accountService.logout(currentAccount);
     }
 }

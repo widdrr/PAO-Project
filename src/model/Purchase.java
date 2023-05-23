@@ -14,4 +14,8 @@ public final class Purchase extends Transaction {
     public double getSum() {
         return -sum;
     }
+
+    public Product getProduct() {
+        return product;
+    }
 }

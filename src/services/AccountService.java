@@ -63,6 +63,7 @@ public final class AccountService {
 
     public void logout(Account account){
         logger.log("User " + account.getUsername() + " logged out");
+        accountRepository.updateAccount(account);
     }
 
     public void makeDeposit(UserAccount account, double sum) throws FundsException {
@@ -74,4 +75,5 @@ public final class AccountService {
         account.withdraw(sum);
         logger.log("Creator " + account.getUsername() + " withdrew " + sum);
     }
+
 }

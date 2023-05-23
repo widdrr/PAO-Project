@@ -28,6 +28,9 @@ public class InMemoryProductRepository implements IProductRepository {
 
     @Override
     public void removeProduct() {
+    }
+    @Override
+    public void updateProduct(Product product) {
 
     }
 }

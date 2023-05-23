@@ -13,5 +13,10 @@ public sealed abstract class Transaction permits Deposit, Purchase, Payment, Wit
         this.account = account;
         this.sum = sum;
     }
+
+    public Date getTransactionDate() {
+        return transactionDate;
+    }
+
     public abstract double getSum();
 }

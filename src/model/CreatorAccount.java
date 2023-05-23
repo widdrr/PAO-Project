@@ -2,6 +2,7 @@ package model;
 
 import exceptions.FundsException;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -69,6 +70,11 @@ public final class CreatorAccount extends Account{
     }
     public CreatorAccount(String username, String passwordHash) {
         super(username, passwordHash);
+        createGame = new GameBuilder(this);
+        createContent = new ContentBuilder(this);
+    }
+    public CreatorAccount(String username, int passwordHash, Date lastLogin){
+        super(username, passwordHash, lastLogin);
         createGame = new GameBuilder(this);
         createContent = new ContentBuilder(this);
     }
