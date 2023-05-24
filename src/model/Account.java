@@ -1,13 +1,13 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 sealed public abstract class Account permits UserAccount, CreatorAccount {
 
     protected String username;
     protected int passwordHash;
-    protected Date lastLogin;
+    protected LocalDateTime lastLogin;
     protected final ArrayList<Transaction> transactions;
     protected double cachedBalance;
     protected boolean cacheValid = false;
@@ -15,11 +15,11 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
     public Account(String username, String passwordHash) {
         this.username = username;
         this.passwordHash = passwordHash.hashCode(); //this would be a proper cryptographic hash in practice
-        this.lastLogin = new Date();
         this.transactions = new ArrayList<>();
+        this.lastLogin = LocalDateTime.now();
     }
 
-    public Account(String username, int passwordHash, Date lastLogin){
+    public Account(String username, int passwordHash, LocalDateTime lastLogin){
         this.username = username;
         this.passwordHash = passwordHash;
         this.lastLogin = lastLogin;
@@ -28,7 +28,7 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
 
     public boolean tryLogin(String password){
         if(password.hashCode() == this.passwordHash){
-            lastLogin = new Date();
+            lastLogin = LocalDateTime.now();
             return true;
         }
         return false;
@@ -46,7 +46,7 @@ sealed public abstract class Account permits UserAccount, CreatorAccount {
         return passwordHash;
     }
 
-    public Date getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 

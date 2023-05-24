@@ -28,7 +28,7 @@ public final class ProductService {
 
     }
     public Product getProduct(String name) throws EntityException{
-        Optional<Product> potentialProduct = productRepository.getProductByName(name);
+        Optional<Product> potentialProduct = productRepository.getProductByName(name.toLowerCase());
         if(potentialProduct.isEmpty())
             throw new EntityException("Product does not exists!");
         Product product = potentialProduct.get();
@@ -36,16 +36,11 @@ public final class ProductService {
         return product;
     }
     public void addProduct(Product newProduct){
-        Optional<Product> existentProduct = productRepository.getProductByName(newProduct.getName());
+        Optional<Product> existentProduct = productRepository.getProductByName(newProduct.getName().toLowerCase());
         if(existentProduct.isPresent()){
             throw new EntityException("There is already a product with this name!");
         }
         productRepository.addProduct(newProduct);
         logger.log("Creator " + newProduct.getCreator().getUsername() + " created a new product");
-    }
-
-    public void purchaseProduct(UserAccount user, Product product) throws FundsException {
-        user.addProduct(product);
-        logger.log("User " + user.getUsername() + " Purchased product with name " + product.getName());
     }
 }

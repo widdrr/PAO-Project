@@ -2,8 +2,7 @@ package model;
 
 import exceptions.FundsException;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 
 public final class CreatorAccount extends Account{
@@ -26,9 +25,8 @@ public final class CreatorAccount extends Account{
             this.tags.add(tag);
         }
         public void setName(String name){
-            this.name = name;
+            this.name = name.toLowerCase();
         }
-
         public void setPrice(double price) {
             this.price = price;
         }
@@ -36,7 +34,7 @@ public final class CreatorAccount extends Account{
         public Product create(){
             Product newGame = new Game(price,name,creator,tags);
             clear();
-            return  newGame;
+            return newGame;
         }
         public void clear(){
             tags.clear();
@@ -73,7 +71,7 @@ public final class CreatorAccount extends Account{
         createGame = new GameBuilder(this);
         createContent = new ContentBuilder(this);
     }
-    public CreatorAccount(String username, int passwordHash, Date lastLogin){
+    public CreatorAccount(String username, int passwordHash, LocalDateTime lastLogin){
         super(username, passwordHash, lastLogin);
         createGame = new GameBuilder(this);
         createContent = new ContentBuilder(this);
@@ -82,7 +80,7 @@ public final class CreatorAccount extends Account{
         if (getBalance() < sum){
             throw new FundsException("Sum exceeds balance!");
         }
-        Transaction withdrawal = new Withdrawal(new Date(),this,sum);
+        Transaction withdrawal = new Withdrawal(LocalDateTime.now(),this,sum);
         addTransaction(withdrawal);
     }
 

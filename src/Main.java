@@ -1,11 +1,10 @@
+import database.IDBConnection;
+import database.MySQLConnection;
 import exceptions.EntityException;
 import exceptions.CredentialsException;
 import exceptions.FundsException;
 import model.*;
-import repositories.IAccountRepository;
-import repositories.IProductRepository;
-import repositories.InMemoryAccountRepository;
-import repositories.InMemoryProductRepository;
+import repositories.*;
 import services.AccountService;
 import services.ProductService;
 
@@ -135,6 +134,7 @@ public class Main {
                         consoleInput.nextLine();
                         try {
                             accountService.makeWithdrawal((CreatorAccount) currentAccount,sum);
+                            System.out.println("Withdrawal successful!");
                         }
                         catch (FundsException e){
                             System.out.println(e.getMessage());
@@ -173,7 +173,7 @@ public class Main {
 
                         try{
                             Product product = productService.getProduct(name);
-                            productService.purchaseProduct((UserAccount) currentAccount, product);
+                            accountService.purchaseProduct((UserAccount) currentAccount, product);
                             System.out.println("Purchase successful!");
                         }
                         catch(EntityException e){
@@ -258,9 +258,11 @@ public class Main {
                         }
                         catch(EntityException e){
                             System.out.println(e.getMessage());
+                            break;
                         }
                         catch (ClassCastException e){
                             System.out.println("Product is not a game");
+                            break;
                         }
 
                         System.out.println("Name:");
@@ -321,8 +323,10 @@ public class Main {
     public static void main(String[] args) {
         quit = false;
         currentMenu = Menus.Main;
-        IAccountRepository accountRepository = new InMemoryAccountRepository();
-        IProductRepository productRepository = new InMemoryProductRepository();
+        IDBConnection connection = MySQLConnection.getInstance();
+        IProductRepository productRepository = new SQLProductRepository(connection);
+        IAccountRepository accountRepository = new SQLAccountRepository(connection,(SQLProductRepository) productRepository);
+        ((SQLProductRepository) productRepository).addHack((SQLAccountRepository) accountRepository);
         accountService = new AccountService(accountRepository);
         productService = new ProductService(productRepository);
         consoleInput = new Scanner(System.in);
@@ -333,6 +337,10 @@ public class Main {
             String command = consoleInput.nextLine();
             handleCommand(command);
         }
-        accountService.logout(currentAccount);
+        try {
+            accountService.logout(currentAccount);
+        }
+        catch (NullPointerException ignore) {
+        }
     }
 }

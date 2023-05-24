@@ -1,0 +1,50 @@
+[Wed May 24 13:37:35 EEST 2023] Registered user: user
+[Wed May 24 13:37:38 EEST 2023] User user deposited 500.0
+[Wed May 24 13:37:40 EEST 2023] User user logged out
+[Wed May 24 13:37:46 EEST 2023] Registered creator: creator
+[Wed May 24 13:38:38 EEST 2023] User creator logged out
+[Wed May 24 13:38:42 EEST 2023] User username logged in.
+[Wed May 24 13:38:47 EEST 2023] User user Purchased product with name DLC1
+[Wed May 24 13:55:50 EEST 2023] Registered user: user
+[Wed May 24 13:55:54 EEST 2023] User user deposited 500.0
+[Wed May 24 13:55:59 EEST 2023] User user logged out
+[Wed May 24 13:56:06 EEST 2023] Registered creator: creator
+[Wed May 24 13:56:09 EEST 2023] Account creator checked details
+[Wed May 24 13:58:24 EEST 2023] User username logged in.
+[Wed May 24 13:58:56 EEST 2023] User creator logged out
+[Wed May 24 13:59:01 EEST 2023] User username logged in.
+[Wed May 24 13:59:11 EEST 2023] User user Purchased product with name Game1
+[Wed May 24 13:59:24 EEST 2023] User user Purchased product with name dlc1
+[Wed May 24 13:59:27 EEST 2023] User user logged out
+[Wed May 24 13:59:33 EEST 2023] User username logged in.
+[Wed May 24 13:59:37 EEST 2023] Account creator checked details
+[Wed May 24 13:59:41 EEST 2023] Creator creator withdrew 40.0
+[Wed May 24 13:59:43 EEST 2023] User creator logged out
+[Wed May 24 14:02:40 EEST 2023] User username logged in.
+[Wed May 24 14:02:45 EEST 2023] User user logged out
+[Wed May 24 14:03:15 EEST 2023] User username logged in.
+[Wed May 24 14:03:32 EEST 2023] User user Purchased product with name game1
+[Wed May 24 14:03:38 EEST 2023] User user logged out
+[Wed May 24 14:03:41 EEST 2023] User username logged in.
+[Wed May 24 14:03:45 EEST 2023] User user logged out
+[Wed May 24 14:04:24 EEST 2023] User username logged in.
+[Wed May 24 14:05:37 EEST 2023] User username logged in.
+[Wed May 24 14:08:16 EEST 2023] User username logged in.
+[Wed May 24 14:08:55 EEST 2023] User username logged in.
+[Wed May 24 14:16:49 EEST 2023] User username logged in.
+[Wed May 24 14:18:00 EEST 2023] User user logged out
+[Wed May 24 14:18:05 EEST 2023] User username logged in.
+[Wed May 24 14:18:07 EEST 2023] Account creator checked details
+[Wed May 24 14:18:56 EEST 2023] User creator logged out
+[Wed May 24 14:18:59 EEST 2023] User username logged in.
+[Wed May 24 14:19:12 EEST 2023] User user deposited 1000.0
+[Wed May 24 14:19:18 EEST 2023] User user Purchased product with name game1
+[Wed May 24 14:19:24 EEST 2023] User user Purchased product with name dlc1
+[Wed May 24 14:19:37 EEST 2023] User user logged out
+[Wed May 24 14:19:43 EEST 2023] User username logged in.
+[Wed May 24 14:19:46 EEST 2023] User user logged out
+[Wed May 24 14:21:58 EEST 2023] User username logged in.
+[Wed May 24 14:22:12 EEST 2023] Account creator checked details
+[Wed May 24 14:22:17 EEST 2023] Creator creator withdrew 47.5
+[Wed May 24 14:22:21 EEST 2023] Account creator checked details
+[Wed May 24 14:22:25 EEST 2023] User creator logged out

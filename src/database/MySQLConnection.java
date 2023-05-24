@@ -9,7 +9,7 @@ public class MySQLConnection implements IDBConnection{
     private final String USER = "root";
     private final String PASSWORD = "root1337";
     private Connection conn;
-    MySQLConnection instance = null;
+    static MySQLConnection instance = null;
 
     private MySQLConnection(){
         try {
@@ -18,7 +18,7 @@ public class MySQLConnection implements IDBConnection{
             e.printStackTrace();
         }
     }
-    public MySQLConnection getInstance() {
+    static public MySQLConnection getInstance() {
         if (instance == null){
             instance = new MySQLConnection();
         }

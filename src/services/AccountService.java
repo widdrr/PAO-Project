@@ -53,7 +53,7 @@ public final class AccountService {
     }
 
     public Account login(String username, String password) throws CredentialsException {
-        Optional<Account> existentAccount = accountRepository.getAccountByUsername(username);
+        Optional<Account> existentAccount = accountRepository.getAccountByUsername(username.toLowerCase());
         if(existentAccount.isEmpty() || !existentAccount.get().tryLogin(password)){
             throw new CredentialsException("Wrong username or password!");
         }
@@ -64,6 +64,12 @@ public final class AccountService {
     public void logout(Account account){
         logger.log("User " + account.getUsername() + " logged out");
         accountRepository.updateAccount(account);
+    }
+
+    public void purchaseProduct(UserAccount user, Product product) throws FundsException,EntityException {
+        user.addProduct(product);
+        accountRepository.updateAccount(product.getCreator());
+        logger.log("User " + user.getUsername() + " Purchased product with name " + product.getName());
     }
 
     public void makeDeposit(UserAccount account, double sum) throws FundsException {
