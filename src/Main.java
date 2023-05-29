@@ -8,6 +8,7 @@ import repositories.*;
 import services.AccountService;
 import services.ProductService;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -339,8 +340,12 @@ public class Main {
         }
         try {
             accountService.logout(currentAccount);
+            connection.close();
         }
         catch (NullPointerException ignore) {
+        }
+        catch(SQLException e){
+            e.printStackTrace();
         }
     }
 }

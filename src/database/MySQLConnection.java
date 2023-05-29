@@ -29,4 +29,9 @@ public class MySQLConnection implements IDBConnection{
     public Connection getCon() {
         return conn;
     }
+
+    @Override
+    public void close() throws SQLException{
+            conn.close();
+    }
 }

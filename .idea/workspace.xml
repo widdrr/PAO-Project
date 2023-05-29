@@ -4,29 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Started work on database support">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="66c9bafe-2b94-44be-a1c9-a860ddd04487" name="Changes" comment="Finished database support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/IDBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/IDBConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/MySQLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logging/AccountLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/logging/AccountLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logging/ProductLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/logging/ProductLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CreatorAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CreatorAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Deposit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Deposit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameTags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameTags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Purchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Purchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Withdrawal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Withdrawal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/SQLAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/SQLAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/SQLProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/SQLProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +97,9 @@
       <workItem from="1684832539600" duration="12377000" />
       <workItem from="1684865975716" duration="4531000" />
       <workItem from="1684910909227" duration="7135000" />
-      <workItem from="1684922844084" duration="4508000" />
+      <workItem from="1684922844084" duration="4575000" />
+      <workItem from="1685218569668" duration="13000" />
+      <workItem from="1685394181003" duration="138000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1681043579488</created>
@@ -194,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684853888255</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Finished database support">
+      <created>1684927427002</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684927427002</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +214,8 @@
     <MESSAGE value="Small changes" />
     <MESSAGE value="Implemented logging" />
     <MESSAGE value="Started work on database support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started work on database support" />
+    <MESSAGE value="Finished database support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished database support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
